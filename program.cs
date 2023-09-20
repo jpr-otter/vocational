@@ -6,15 +6,22 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to our corner store.\nHere is a list of our items.\n");
-            IDictionary<double, string> listOfItems = new Dictionary<double, string>();
-            listOfItems.Add(3.99, "Beans"); //adding a key/value using the Add() method
-            listOfItems.Add(0.99, "Cucumber");
-            listOfItems.Add(1.29, "Broccoli");            
-            foreach (KeyValuePair<double, string> kvp in listOfItems)
+            purchase();
+        }
+
+        public static void purchase()
+        {
+            // bad idea to use a dictionary, every entry needs to be unique. no doubling of the items
+
+            Console.WriteLine("\nWelcome to our corner store.\nHere is a list of our items.\n");
+            IDictionary<string, double> listOfItems = new Dictionary<string, double>();
+            listOfItems.Add("Beans", 3.99); //adding a key/value using the Add() method
+            listOfItems.Add("Cucumber", 0.99);
+            listOfItems.Add("Broccoli", 1.29);
+            foreach (KeyValuePair<string, double> kvp in listOfItems)
             {
                 //Console.WriteLine("Key: {0}, Value: {1}", kvp.Key, kvp.Value);
-                Console.WriteLine($"{kvp.Value} {kvp.Key}");
+                Console.WriteLine($"{kvp.Key} {kvp.Value}");
             }
 
             Console.WriteLine("How many items do you want to purchase?");
@@ -24,69 +31,30 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.WriteLine("Please enter the names of the items you want to pick, separate them with commas.");
             string chosenItems = Console.ReadLine();
             string[] nameOfItems = chosenItems.Split(',');
-            for (int i = 0; i < chosenItems.Length; i++)
+            for (int i = 0; i < nameOfItems.Length; i++)
             {
                 nameOfItems[i] = nameOfItems[i].Trim();
             }
             IDictionary<string, double> PickedList = new Dictionary<string, double>();
             foreach (var item in nameOfItems)
             {
-                if (!string.IsNullOrEmpty(item) && listOfItems.Contains(item)) 
+                if (!string.IsNullOrEmpty(item) && listOfItems.ContainsKey(item))
                 {
                     PickedList.Add(item, listOfItems[item]);
                 }
                 else
                 {
-                    Console.WriteLine("We dont have that item.");
+                    Console.WriteLine($"We don't have {item}.");
                 }
             }
-
-            /*
-            Console.WriteLine($"Please enter {numberOfItems} items you want to purchase, press enter after each input.");
-
-            for (int i = 0; i < numberOfItems; i++)
+            Console.WriteLine("These are your picked items:\n");
+            double totalPrice = 0;
+            foreach (var item in PickedList)
             {
-                arrayOfItems[i] = Console.ReadLine();
+                Console.WriteLine(item.Key + ":" + item.Value);
+                totalPrice += item.Value;
             }
-
-            
-
-            foreach (string d in arrayOfItems)
-            {
-                Console.WriteLine(d);
-            }
-            */
-
-            /*
-            double average = sum / 6;
-            Console.WriteLine("===============================================");
-            Console.WriteLine("The Values you've entered are");
-            Console.WriteLine("{0}{1,8}", "index", "value");
-            for (int counter = 0; counter < 6; counter++)
-                Console.WriteLine("{0,5}{1,8}", counter, arrayOfItems[counter]);
-            Console.WriteLine("===============================================");
-            Console.WriteLine("The average is ;");
-            Console.WriteLine(average);
-            Console.WriteLine("===============================================");
-            Console.WriteLine("would you like to search for a certain elemnt ? (enter yes or no)");
-            string answer = Console.ReadLine();
-            switch (answer)
-            {
-                case "yes":
-                    Console.WriteLine("===============================================");
-                    Console.WriteLine("please enter the array index you wish to get the value of it");
-                    int index = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("===============================================");
-                    Console.WriteLine("The Value of the selected index is:");
-                    Console.WriteLine(arrayOfItems[index]);
-                    break;
-
-                case "no":
-                    Console.WriteLine("===============================================");
-                    Console.WriteLine("HAVE A NICE DAY SIR");
-                    break;
-            }
-            */
+            Console.WriteLine($"\nTotal cost of your purchase: {totalPrice}");
         }
         
     }
