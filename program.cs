@@ -56,6 +56,29 @@ namespace MyApp // Note: actual namespace depends on the project name.
             }
             Console.WriteLine($"\nTotal cost of your purchase: {totalPrice}");
         }
+
+        public static void grading()
+        {
+            int scoredPoints;
+            int grade = 100;
+
+            Console.WriteLine("How much points did you get:");
+            scoredPoints = Convert.ToInt32(Console.ReadLine());
+            if (scoredPoints <= 20)
+            {
+                grade = 5;
+            }
+            else
+            {
+                for (int i = scoredPoints; i >= 20; i--)
+                {
+                    grade += 10;
+                    //Console.WriteLine(grade);
+                }
+                int decimalgrade = grade / 10;
+                Console.WriteLine(decimalgrade);
+            }
+        }        
         
     }
 }
