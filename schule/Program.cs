@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using part5logic;
 
-namespace MyApp // Note: actual namespace depends on the project name. BLABLA ÄNDERUNG
+namespace schule // Note: actual namespace depends on the project name. BLABLA ÄNDERUNG
 {
     internal class Program
     {
