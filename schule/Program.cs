@@ -15,7 +15,12 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //grading2();
             //GradingPerfected();
             //groceryShopping();
-            PDF6AufgabeA();
+            //PDF6AufgabeA();
+            PDF6DoWhileA();
+            PDF6DoWhileB();
+            PDF6ForLoopA();
+            PDF6ForLoopB();
+
         }
 
         public static void purchase()  // bad idea to use a dictionary, every entry needs to be unique. no doubling of the items
@@ -319,6 +324,55 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
         public static void PDF6AufgabeB()
         {
             Console.WriteLine("Already did this with the grocery shopping list stuff");
+        }
+        
+        public static void PDF6DoWhileA()
+        {
+            int upperlimit = 0;
+            do 
+            { 
+                Console.WriteLine(upperlimit);
+                upperlimit++; 
+            }
+            while(upperlimit <= 100);
+        }
+        public static void PDF6DoWhileB() 
+        {
+            int upperlimit = 0;
+            do
+            {   if(!(upperlimit % 2 == 0)) 
+                {
+                    Console.WriteLine(upperlimit);
+                }
+                upperlimit++;
+            }while (upperlimit <= 100);
+        }
+
+        public static void PDF6ForLoopA()
+        {          
+            for (int i = 0; i <= 100; i++)
+            {
+                Console.WriteLine(i + " for loop");
+            }
+        }
+
+        public static void PDF6ForLoopB() 
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for(int j = 0; j <= 10; j++)
+                {
+                    Console.Write("Z");
+                }
+                Console.WriteLine();
+            }
+            for (int j = 0; j <= 10; j++)
+            {
+                Console.WriteLine("XXXXXXXXXXX");
+            }
+            
+
+
         }
     }
 }
