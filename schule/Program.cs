@@ -1,7 +1,7 @@
 ï»¿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
-using part5logic;
+//using part5logic;
 
 namespace schule // Note: actual namespace depends on the project name. BLABLA Ã„NDERUNG
 {
@@ -13,13 +13,14 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //purchaseWithList();
             //grading();
             //grading2();
-            GradingPerfected();
+            //GradingPerfected();
             //groceryShopping();
+            PDF6AufgabeA();
         }
 
-        public static void purchase()
+        public static void purchase()  // bad idea to use a dictionary, every entry needs to be unique. no doubling of the items
         {
-            // bad idea to use a dictionary, every entry needs to be unique. no doubling of the items
+           
 
             Console.WriteLine("\nWelcome to our corner store.\nHere is a list of our items.\n");
             IDictionary<string, double> listOfItems = new Dictionary<string, double>();
@@ -306,5 +307,18 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             Console.WriteLine($"\nTotal cost of your purchase: {totalPrice}");
         }
 
+        public static void PDF6AufgabeA()
+        {
+            int upperLimit = 0;
+            while (upperLimit <= 100)
+            {
+                Console.WriteLine(upperLimit);
+                upperLimit++;
+            }
+        }
+        public static void PDF6AufgabeB()
+        {
+            Console.WriteLine("Already did this with the grocery shopping list stuff");
+        }
     }
 }
