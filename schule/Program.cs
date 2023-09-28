@@ -1,7 +1,6 @@
-ï»¿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
-//using part5logic;
+ï»¿//using part5logic;
+
+using System.Data;
 
 namespace schule // Note: actual namespace depends on the project name. BLABLA Ã„NDERUNG
 {
@@ -16,16 +15,22 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //GradingPerfected();
             //groceryShopping();
             //PDF6AufgabeA();
-            PDF6DoWhileA();
-            PDF6DoWhileB();
-            PDF6ForLoopA();
-            PDF6ForLoopB();
+            //PDF6DoWhileA();
+            //PDF6DoWhileB();
+            //PDF6ForLoopA();
+            //PDF6ForLoopB();
+            //PDF6ForLoopC();
+            //PDF6ForLoopD(); 
+            //PDF6ForLoopE();
+            PDF6ForLoopF();
+            PDF6ForLoopG();
+            //TEST2();
 
         }
 
         public static void purchase()  // bad idea to use a dictionary, every entry needs to be unique. no doubling of the items
         {
-           
+
 
             Console.WriteLine("\nWelcome to our corner store.\nHere is a list of our items.\n");
             IDictionary<string, double> listOfItems = new Dictionary<string, double>();
@@ -77,7 +82,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
         {
             Console.WriteLine("\nWelcome to our corner store.\nHere is a list of our items.\n");
             List<string> listOfItems = new List<string>();
-            listOfItems.Add("Beans"); //adding a key/value using the Add() method
+            listOfItems.Add("Beans");
             listOfItems.Add("Cucumber");
             listOfItems.Add("Broccoli");
             listOfItems.Add("Tomato");
@@ -86,11 +91,9 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             {
                 Console.WriteLine(item);
             }
-
             Console.WriteLine("How many items do you want to purchase?");
             int numberOfItems = Convert.ToInt32(Console.ReadLine());
             string[] arrayOfItems = new string[numberOfItems];
-
             Console.WriteLine("Please enter the names of the items you want to pick, separate them with commas.");
             string chosenItems = Console.ReadLine();
             string[] nameOfItems = chosenItems.Split(',');
@@ -121,7 +124,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             foreach (var item in PickedList)
             {
                 Console.WriteLine(item);
-                totalPrice += 1.99;
+                totalPrice += 1.99; // ???
             }
             Console.WriteLine($"\nTotal cost of your purchase: {totalPrice}");
         }
@@ -213,7 +216,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 Console.WriteLine($"Your grade: {Math.Round(grade, 2)}\n");
             }
 
-            for (int i = minPoints + 1 ; i <= maxPoints; i++)
+            for (int i = minPoints + 1; i <= maxPoints; i++)
             {
                 gradeGeneral -= gradeDecrement;
 
@@ -325,42 +328,43 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
         {
             Console.WriteLine("Already did this with the grocery shopping list stuff");
         }
-        
+
         public static void PDF6DoWhileA()
         {
             int upperlimit = 0;
-            do 
-            { 
+            do
+            {
                 Console.WriteLine(upperlimit);
-                upperlimit++; 
+                upperlimit++;
             }
-            while(upperlimit <= 100);
+            while (upperlimit <= 100);
         }
-        public static void PDF6DoWhileB() 
+        public static void PDF6DoWhileB()
         {
             int upperlimit = 0;
             do
-            {   if(!(upperlimit % 2 == 0)) 
+            {
+                if (!(upperlimit % 2 == 0))
                 {
                     Console.WriteLine(upperlimit);
                 }
                 upperlimit++;
-            }while (upperlimit <= 100);
+            } while (upperlimit <= 100);
         }
 
         public static void PDF6ForLoopA()
-        {          
+        {
             for (int i = 0; i <= 100; i++)
             {
                 Console.WriteLine(i + " for loop");
             }
         }
 
-        public static void PDF6ForLoopB() 
+        public static void PDF6ForLoopB()
         {
             for (int i = 0; i < 10; i++)
             {
-                for(int j = 0; j <= 10; j++)
+                for (int j = 0; j <= 10; j++)
                 {
                     Console.Write("Z");
                 }
@@ -370,9 +374,106 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             {
                 Console.WriteLine("XXXXXXXXXXX");
             }
+
+
+
+        }
+        public static void PDF6ForLoopC()
+        {
+            for (int i = 0; i <= 20; i++)
+            {
+                for (int j = 0; j <= i; j++)
+                {
+                    Console.Write("X");
+                }
+                Console.WriteLine();
+            }
+        }
+        public static void PDF6ForLoopD()
+        {
+            int rows = 20;
+            Console.WriteLine("                 PYRAMID");
+            for (int i = 1; i <= rows; i++)
+            {
+                for (int j = 1; j <= rows - i; j++)
+                {
+                    Console.Write(" ");                    
+                }
+
+                for (int k = 1; k <= 2 * i - 1; k++)
+                {
+                    Console.Write("X");                
+                }
+
+                Console.WriteLine();
+            }
+        }
+        public static void PDF6ForLoopE()
+        {
+            int row = 20;
+            Console.WriteLine("             INVERTED PYRAMID");
+            for (int i= row; i >= 1; i--)
+            {
+                for (int j = 1; j <= row - i; j++)
+                {
+                    Console.Write(" ");
+                }
+                for(int k = 1;k <= 2 * i -1 ; k++)
+                {
+                    Console.Write("X");
+                }
+                Console.WriteLine();
+            }
+        }
+        public static void PDF6ForLoopF()
+        {
+            Console.WriteLine("Steps");
+            int row = 20;
+            for (int i= 0; i < row; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    Console.Write(" ");
+                }
+                Console.WriteLine("X");
+            }
             
+        }
+        public static void PDF6ForLoopG()
+        {
+            Console.WriteLine("Inverted Steps");
+            int row = 20;
+            for (int i = row; i >= 1; i--)
+            {
+                for (int j = 1; j < i ; j++)
+                {
+                    Console.Write(" ");
+                }
+                Console.WriteLine("X");
+            }
 
-
+        }
+        public static void PYRAMID() 
+        {
+            int rows = 20;
+            for (int i = 1;i <= rows; i++)
+            {
+                for(int j = 1;j <= rows - i; j++)
+                {
+                    Console.Write(" ");
+                }
+                for(int k = 1; k <= 2 * i - 1; k++)
+                {
+                    Console.Write("X");
+                }
+            }
+        }
+        public static void TEST2()
+        {
+            string words = "hallo";
+            Console.Write(words);
+            //Console.WriteLine();
+            Console.Write(words);
         }
     }
 }
