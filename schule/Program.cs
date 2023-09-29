@@ -1,5 +1,6 @@
 ï»¿//using part5logic;
 
+using System.ComponentModel;
 using System.Data;
 
 namespace schule // Note: actual namespace depends on the project name. BLABLA Ã„NDERUNG
@@ -22,10 +23,11 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //PDF6ForLoopC();
             //PDF6ForLoopD(); 
             //PDF6ForLoopE();
-            PDF6ForLoopF();
-            PDF6ForLoopG();
+            //PDF6ForLoopF();
+            //PDF6ForLoopG();
             //TEST2();
-
+            //PDF6Aufgabe2();
+            PDF6Aufgabe3();
         }
 
         public static void purchase()  // bad idea to use a dictionary, every entry needs to be unique. no doubling of the items
@@ -391,16 +393,16 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
         }
         public static void PDF6ForLoopD()
         {
-            int rows = 20;
+            int totalRows = 20;
             Console.WriteLine("                 PYRAMID");
-            for (int i = 1; i <= rows; i++)
+            for (int row = 1; row <= totalRows; row++)
             {
-                for (int j = 1; j <= rows - i; j++)
+                for (int column = 1; column <= totalRows - row; column++)
                 {
                     Console.Write(" ");                    
                 }
 
-                for (int k = 1; k <= 2 * i - 1; k++)
+                for (int amountX = 1; amountX <= 2 * row - 1; amountX++)
                 {
                     Console.Write("X");                
                 }
@@ -409,19 +411,21 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             }
         }
         public static void PDF6ForLoopE()
-        {
-            int row = 20;
+        {           
             Console.WriteLine("             INVERTED PYRAMID");
-            for (int i= row; i >= 1; i--)
+            int totalRows = 20;           
+            for (int row = totalRows; row >= 1; row--)
             {
-                for (int j = 1; j <= row - i; j++)
+                for (int column = 1; column <= totalRows - row; column++)
                 {
                     Console.Write(" ");
                 }
-                for(int k = 1;k <= 2 * i -1 ; k++)
+
+                for (int amountX = 1; amountX <= 2 * row - 1; amountX++)
                 {
                     Console.Write("X");
                 }
+
                 Console.WriteLine();
             }
         }
@@ -474,6 +478,73 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             Console.Write(words);
             //Console.WriteLine();
             Console.Write(words);
+        }
+        public static void PDF6Aufgabe2()
+        {
+            for( int i = 1; i <= 10; i++)
+            {
+                if(i < 4)
+                {
+                    Console.WriteLine($"base = {i},    squared = {i * i},      cubed  = {i * i * i}");                    
+                }
+                else if (i >= 4 && i < 10)
+                {
+                    Console.WriteLine($"base = {i},    squared = {i * i},     cubed  = {i * i * i}");
+                }
+                else
+                {
+                    Console.WriteLine($"base = {i},   squared = {i * i},    cubed  = {i * i * i}");
+
+                }
+
+            }
+        }
+        public static void PDF6Aufgabe3()
+        {
+            Console.WriteLine("How many numbers do you want to have as a base?");
+
+            int arraySize = Convert.ToInt32(Console.ReadLine());
+            int[] potencyBase = new int[arraySize];
+            Console.WriteLine();
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                Console.Write($"Type in the base, press enter for next input - Position {i + 1}: ");
+                potencyBase[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine();
+
+            int[] potencyExponent = new int[arraySize];
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                Console.Write($"Type in the exponent, press enter for next input - Position {i + 1}: ");
+                potencyExponent[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("The numbers you entered are : ");
+            for (int i = 0; i < arraySize; i++)
+            {
+                double result = Math.Pow(potencyBase[i], potencyExponent[i]);
+                
+                Console.WriteLine($"Base: {potencyBase[i]}, exponent: {potencyExponent[i]}, result: {result}");
+            }
+            Console.WriteLine();
+            for (int j = 0; j < potencyBase.Length; j++)
+            {
+                int baseNumber = potencyBase[j];
+                int exponentNumber = potencyExponent[j];
+                string explicitCalc = "";
+
+                for (int i = 0; i < exponentNumber; i++)
+                {
+                    explicitCalc += baseNumber + " * ";
+                }
+                char[] charstToTrim = { '*', ' ' };
+                explicitCalc = explicitCalc.TrimEnd(charstToTrim);
+                Console.WriteLine($"Calculation: {potencyBase[j]} ^ {potencyExponent[j]} = {explicitCalc} = {Math.Pow(potencyBase[j], potencyExponent[j])}");
+            }
         }
     }
 }
