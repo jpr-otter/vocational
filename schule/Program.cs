@@ -559,7 +559,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 try
                 {
                     amountOfItems = Int32.Parse(userInput);
-                    Console.WriteLine($"You chose to pick {amountOfItems} items.");
+                    Console.WriteLine($"You chose to pick {amountOfItems} items.\n");
                     break;
                 }
                 catch
@@ -568,7 +568,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 }
 
             }
-            Console.WriteLine("This is the list of items we have");
+            Console.WriteLine("This is the list of items we have:\n");
             Dictionary<string, int> items = new Dictionary<string, int>();
             
             string[] vegetables = new string[] { "Artichokes", "Arugula", "Asparagus", "Beets", "Bell peppers", "Black beans", "Bok choy", 
