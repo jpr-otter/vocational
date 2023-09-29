@@ -2,6 +2,7 @@
 
 using System.ComponentModel;
 using System.Data;
+using System.Reflection;
 
 namespace schule // Note: actual namespace depends on the project name. BLABLA Ã„NDERUNG
 {
@@ -27,7 +28,8 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //PDF6ForLoopG();
             //TEST2();
             //PDF6Aufgabe2();
-            PDF6Aufgabe3();
+            //PDF6Aufgabe3();
+            EinkaufsListe(); 
         }
 
         public static void purchase()  // bad idea to use a dictionary, every entry needs to be unique. no doubling of the items
@@ -505,6 +507,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
 
             int arraySize = Convert.ToInt32(Console.ReadLine());
             int[] potencyBase = new int[arraySize];
+            int[] potencyExponent = new int[arraySize];
             Console.WriteLine();
 
             for (int i = 0; i < arraySize; i++)
@@ -512,9 +515,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 Console.Write($"Type in the base, press enter for next input - Position {i + 1}: ");
                 potencyBase[i] = Convert.ToInt32(Console.ReadLine());
             }
-            Console.WriteLine();
-
-            int[] potencyExponent = new int[arraySize];
+            Console.WriteLine();            
 
             for (int i = 0; i < arraySize; i++)
             {
@@ -536,15 +537,73 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 int baseNumber = potencyBase[j];
                 int exponentNumber = potencyExponent[j];
                 string explicitCalc = "";
+                char[] charstToTrim = { '*', ' ' };
 
                 for (int i = 0; i < exponentNumber; i++)
                 {
                     explicitCalc += baseNumber + " * ";
                 }
-                char[] charstToTrim = { '*', ' ' };
+                
                 explicitCalc = explicitCalc.TrimEnd(charstToTrim);
                 Console.WriteLine($"Calculation: {potencyBase[j]} ^ {potencyExponent[j]} = {explicitCalc} = {Math.Pow(potencyBase[j], potencyExponent[j])}");
             }
+        }
+        public static void EinkaufsListe()
+        {
+            Console.WriteLine("How many items would you like to purchase?");
+            int amountOfItems;
+            string userInput;
+            while (true)
+            {
+                userInput = Console.ReadLine();
+                try
+                {
+                    amountOfItems = Int32.Parse(userInput);
+                    Console.WriteLine($"You chose to pick {amountOfItems} items.");
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Your input is invalid. Please type in a number.");
+                }
+
+            }
+            Console.WriteLine("This is the list of items we have");
+            Dictionary<string, int> items = new Dictionary<string, int>();
+            
+            string[] vegetables = new string[] { "Artichokes", "Arugula", "Asparagus", "Beets", "Bell peppers", "Black beans", "Bok choy", 
+                "Broccoli", "Brussels sprouts", "Cabbage", "Carrots", "Cauliflower", "Celery", "Collard greens", "Corn", "Cucumbers", "Endive", 
+                "Escarole", "Fennel", "French beans", "Garlic", "Ginger", "Green beans", "Green onions", "Green peas"};
+            int[] serialnumbers = new int[25];
+            for (int i = 0; i < serialnumbers.Length; i++)
+            {
+                serialnumbers[i] = i+ 1 ;
+            }
+            Random rand = new Random();
+            for (int i = vegetables.Length -1; i > 0; i--)
+            {
+                int j = rand.Next(i + 1);
+                string temp = vegetables[i];
+                vegetables[i] = vegetables[j];
+                vegetables[j]= temp;
+            } 
+            for(int i = 0;i<serialnumbers.Length;i++)
+            {
+                items.Add(vegetables[i], serialnumbers[i]);
+            }
+            foreach(KeyValuePair<string, int> pair in items)
+            {
+                if (pair.Value < 10)
+                {
+                    Console.WriteLine($"{pair.Value}:   {pair.Key}");
+                }
+                else
+                {
+                    Console.WriteLine($"{pair.Value}:  {pair.Key}");
+                }
+            }
+            
+
         }
     }
 }
