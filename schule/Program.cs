@@ -3,6 +3,7 @@
 using System.ComponentModel;
 using System.Data;
 using System.Reflection;
+using System.Reflection.Metadata;
 
 namespace schule // Note: actual namespace depends on the project name. BLABLA Ã„NDERUNG
 {
@@ -29,7 +30,19 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //TEST2();
             //PDF6Aufgabe2();
             //PDF6Aufgabe3();
-            EinkaufsListe(); 
+            //EinkaufsListe();
+            //grading2();
+
+            HackerRank HackerRank = new HackerRank();
+            int steps = 8;
+            string path = "DDUUUUDD";
+            //HackerRank.countingValleys(steps, path);
+            HackerRank.countingValleysMoreBeautifully(steps, path);
+            int[] keyboards = new[] { 40, 50, 60 };
+            int[] drives = new[] { 5, 8, 12 };
+            int b = 60;
+            //HackerRank.getMoneySpent(keyboards, drives, b);
+            HackerRank.CORRECTmoneySpent(keyboards, drives, b);
         }
 
         public static void purchase()  // bad idea to use a dictionary, every entry needs to be unique. no doubling of the items
@@ -155,7 +168,6 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 Console.WriteLine(decimalgrade);
             }
         }
-
         public static void grading2()
         {
             {
@@ -177,7 +189,6 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 }
             }
         }
-
         public static void GradingPerfected()
         {
             bool validInput = false;
@@ -241,7 +252,6 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             }
 
         }
-
         public static void groceryShopping()
         {
             // Print a welcome message and a list of items to the console.
@@ -318,7 +328,6 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             // Print the total cost of the items that the user picked.
             Console.WriteLine($"\nTotal cost of your purchase: {totalPrice}");
         }
-
         public static void PDF6AufgabeA()
         {
             int upperLimit = 0;
@@ -332,7 +341,6 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
         {
             Console.WriteLine("Already did this with the grocery shopping list stuff");
         }
-
         public static void PDF6DoWhileA()
         {
             int upperlimit = 0;
@@ -355,7 +363,6 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 upperlimit++;
             } while (upperlimit <= 100);
         }
-
         public static void PDF6ForLoopA()
         {
             for (int i = 0; i <= 100; i++)
@@ -363,7 +370,6 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 Console.WriteLine(i + " for loop");
             }
         }
-
         public static void PDF6ForLoopB()
         {
             for (int i = 0; i < 10; i++)
