@@ -2,6 +2,7 @@
 
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Reflection;
 using System.Reflection.Metadata;
 
@@ -15,7 +16,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //purchaseWithList();
             //grading();
             //grading2();
-            //GradingPerfected();
+            GradingPerfected();
             //groceryShopping();
             //PDF6AufgabeA();
             //PDF6DoWhileA();
@@ -32,17 +33,18 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //PDF6Aufgabe3();
             //EinkaufsListe();
             //grading2();
+           //grading3();
 
             HackerRank HackerRank = new HackerRank();
             int steps = 8;
             string path = "DDUUUUDD";
             //HackerRank.countingValleys(steps, path);
-            HackerRank.countingValleysMoreBeautifully(steps, path);
+            //HackerRank.countingValleysMoreBeautifully(steps, path);
             int[] keyboards = new[] { 40, 50, 60 };
             int[] drives = new[] { 5, 8, 12 };
             int b = 60;
             //HackerRank.getMoneySpent(keyboards, drives, b);
-            HackerRank.CORRECTmoneySpent(keyboards, drives, b);
+            //HackerRank.CORRECTmoneySpent(keyboards, drives, b);
         }
 
         public static void purchase()  // bad idea to use a dictionary, every entry needs to be unique. no doubling of the items
@@ -191,6 +193,8 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
         }
         public static void GradingPerfected()
         {
+            //2.33 ist eine 2-
+            //2.66 ist eine 3+
             bool validInput = false;
             int pointScore = 0;
             double gradeGeneral = 5;
@@ -202,6 +206,8 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             const int maxPoints = 60;
             const int minPoints = 20;
             const int lowestPoints = 0;
+
+            //bool validInput = true;
 
             while (!validInput)
             {
@@ -227,6 +233,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 for (int i = pointScore; i > minPoints; i--)
                 {
                     grade -= gradeDecrement;
+                    
                 }
                 Console.WriteLine($"Your grade: {Math.Round(grade, 2)}\n");
             }
@@ -252,6 +259,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             }
 
         }
+        //hhallllooo
         public static void groceryShopping()
         {
             // Print a welcome message and a list of items to the console.
@@ -609,6 +617,37 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 }
             }
             
+
+        }
+        public static void grading3()
+        {
+            Console.WriteLine("Type in your score!");
+            int score = Convert.ToInt32(Console.ReadLine());
+
+            int maxScore = 60;
+            int lowestScore = 20;
+            double grade = 1.0D;
+
+            if (score <= lowestScore)
+            {
+                grade = 5;
+                Console.WriteLine("You failed class, your grade is " + grade);
+            }
+            else if (score > 60)
+            {
+                Console.WriteLine("Invalid score");
+            }
+            else
+            {
+                for (int i = score; i < maxScore; i++)
+                {
+                    grade = grade + 0.1D;
+
+                    //Console.WriteLine("die score die sich verÃ¤ndert: " + score);
+                    //Console.WriteLine((decimal)grade);
+                }
+                Console.WriteLine("Your grade is " + (decimal)grade);
+            }
 
         }
     }
