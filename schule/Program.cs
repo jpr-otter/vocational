@@ -12,6 +12,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
     {
         static void Main(string[] args)
         {
+            //TESTEREE RFEFEFEFEWF
             //purchase();
             //purchaseWithList();
             //grading();
