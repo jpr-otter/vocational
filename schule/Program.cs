@@ -17,7 +17,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //purchaseWithList();
             //grading();
             //grading2();
-            GradingPerfected();
+            //GradingPerfected();
             //groceryShopping();
             //PDF6AufgabeA();
             //PDF6DoWhileA();
@@ -31,10 +31,12 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //PDF6ForLoopG();
             //TEST2();
             //PDF6Aufgabe2();
-            //PDF6Aufgabe3();
+            PDF6Aufgabe3();
             //EinkaufsListe();
             //grading2();
-           //grading3();
+            //grading3();
+            //whileCounter();
+            //gradingWithWhile();
 
             HackerRank HackerRank = new HackerRank();
             int steps = 8;
@@ -46,6 +48,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             int b = 60;
             //HackerRank.getMoneySpent(keyboards, drives, b);
             //HackerRank.CORRECTmoneySpent(keyboards, drives, b);
+            //Console.ReadKey();
         }
 
         public static void purchase()  // bad idea to use a dictionary, every entry needs to be unique. no doubling of the items
@@ -249,15 +252,16 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
 
                 if (decimalOfGrade < minusBorder)
                 {
-                    sign = "+";
+                    sign = "+";                    
+                    
                 }
                 else if (decimalOfGrade > plusBorder)
                 {
-                    sign = "-";
+                    sign = "-";                    
                 }
-
-                Console.WriteLine($"Points: {i} --- Corresponding grade: {Math.Round(gradeGeneral, 2)} --- grade with sign {gradeWithoutDecimal}{sign}");
+                Console.WriteLine($"Points: {i} --- Corresponding grade: {Math.Round(gradeGeneral, 2)} --- grade with sign {gradeWithoutDecimal}{sign}");                
             }
+            Console.ReadLine();
 
         }
         //hhallllooo
@@ -650,6 +654,46 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 Console.WriteLine("Your grade is " + (decimal)grade);
             }
 
+        }
+        public static void whileCounter()
+        {
+            int counter = 0;
+            while(counter < 100)
+            {
+                counter++;            
+                Console.WriteLine(counter);
+
+            }
+            Console.ReadLine();
+        }
+        public static void gradingWithWhile()
+        {
+            bool validInput = false;
+            string affirmation = string.Empty;
+            while (affirmation != "yes")
+            {
+                Console.WriteLine("Enter the score you reached (max is 60): ");
+                int score = Convert.ToInt32(Console.ReadLine());
+
+                if (score > 60 || score < 0)
+                {
+                    Console.WriteLine("Invalid score. Please enter a score between 0 and 60.");
+                }
+                else if (score <= 20)
+                {
+                    Console.WriteLine("Your grade is 5.");
+                    validInput = true;
+                    Console.WriteLine("Repeat the program?");
+                    affirmation = Console.ReadLine();
+                }
+                else
+                {
+                    double grade = 1 + (60 - score) * 0.1;
+                    Console.WriteLine($"Your grade is {grade}.");
+                    validInput = true;
+                }
+            }
+            Console.ReadLine() ;    
         }
     }
 }
