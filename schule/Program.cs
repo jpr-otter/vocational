@@ -32,7 +32,9 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //PDF6Aufgabe3();
             //EinkaufsListe();
             //grading2();
+            Fac(10);
 
+            /*
             HackerRank HackerRank = new HackerRank();
             int steps = 8;
             string path = "DDUUUUDD";
@@ -43,8 +45,18 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             int b = 60;
             //HackerRank.getMoneySpent(keyboards, drives, b);
             HackerRank.CORRECTmoneySpent(keyboards, drives, b);
+            */
         }
-
+        public static int Fac(int x)
+        {
+            int result = 1;
+            for (int i = 1; i <= x; i++)
+            {
+                result = result * i;
+            }
+            Console.WriteLine(result);
+            return result;
+        }
         public static void purchase()  // bad idea to use a dictionary, every entry needs to be unique. no doubling of the items
         {
 
@@ -611,5 +623,8 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             
 
         }
+
+        // PDF 7.1 Intro Methods
+        
     }
 }
