@@ -2,6 +2,7 @@
 
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Reflection;
 using System.Reflection.Metadata;
 
@@ -11,6 +12,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
     {
         static void Main(string[] args)
         {
+            //TESTE
             //purchase();
             //purchaseWithList();
             //grading();
@@ -29,24 +31,30 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //PDF6ForLoopG();
             //TEST2();
             //PDF6Aufgabe2();
-            //PDF6Aufgabe3();
+            PDF6Aufgabe3();
             //EinkaufsListe();
             //grading2();
             Fac(10);
+            //grading3();
+            //whileCounter();
+            //gradingWithWhile();
 
             /*
             HackerRank HackerRank = new HackerRank();
             int steps = 8;
             string path = "DDUUUUDD";
             //HackerRank.countingValleys(steps, path);
-            HackerRank.countingValleysMoreBeautifully(steps, path);
+            //HackerRank.countingValleysMoreBeautifully(steps, path);
             int[] keyboards = new[] { 40, 50, 60 };
             int[] drives = new[] { 5, 8, 12 };
             int b = 60;
             //HackerRank.getMoneySpent(keyboards, drives, b);
+            //HackerRank.CORRECTmoneySpent(keyboards, drives, b);
+            //Console.ReadKey();
             HackerRank.CORRECTmoneySpent(keyboards, drives, b);
             */
         }
+
         public static int Fac(int x)
         {
             int result = 1;
@@ -57,6 +65,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             Console.WriteLine(result);
             return result;
         }
+
         public static void purchase()  // bad idea to use a dictionary, every entry needs to be unique. no doubling of the items
         {
 
@@ -203,6 +212,8 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
         }
         public static void GradingPerfected()
         {
+            //2.33 ist eine 2-
+            //2.66 ist eine 3+
             bool validInput = false;
             int pointScore = 0;
             double gradeGeneral = 5;
@@ -214,6 +225,8 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             const int maxPoints = 60;
             const int minPoints = 20;
             const int lowestPoints = 0;
+
+            //bool validInput = true;
 
             while (!validInput)
             {
@@ -239,6 +252,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 for (int i = pointScore; i > minPoints; i--)
                 {
                     grade -= gradeDecrement;
+
                 }
                 Console.WriteLine($"Your grade: {Math.Round(grade, 2)}\n");
             }
@@ -254,16 +268,18 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 if (decimalOfGrade < minusBorder)
                 {
                     sign = "+";
+
                 }
                 else if (decimalOfGrade > plusBorder)
                 {
                     sign = "-";
                 }
-
                 Console.WriteLine($"Points: {i} --- Corresponding grade: {Math.Round(gradeGeneral, 2)} --- grade with sign {gradeWithoutDecimal}{sign}");
             }
+            Console.ReadLine();
 
         }
+        //hhallllooo
         public static void groceryShopping()
         {
             // Print a welcome message and a list of items to the console.
@@ -419,21 +435,21 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             {
                 for (int column = 1; column <= totalRows - row; column++)
                 {
-                    Console.Write(" ");                    
+                    Console.Write(" ");
                 }
 
                 for (int amountX = 1; amountX <= 2 * row - 1; amountX++)
                 {
-                    Console.Write("X");                
+                    Console.Write("X");
                 }
 
                 Console.WriteLine();
             }
         }
         public static void PDF6ForLoopE()
-        {           
+        {
             Console.WriteLine("             INVERTED PYRAMID");
-            int totalRows = 20;           
+            int totalRows = 20;
             for (int row = totalRows; row >= 1; row--)
             {
                 for (int column = 1; column <= totalRows - row; column++)
@@ -453,7 +469,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
         {
             Console.WriteLine("Steps");
             int row = 20;
-            for (int i= 0; i < row; i++)
+            for (int i = 0; i < row; i++)
             {
                 for (int j = 0; j < i; j++)
                 {
@@ -461,7 +477,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 }
                 Console.WriteLine("X");
             }
-            
+
         }
         public static void PDF6ForLoopG()
         {
@@ -469,7 +485,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             int row = 20;
             for (int i = row; i >= 1; i--)
             {
-                for (int j = 1; j < i ; j++)
+                for (int j = 1; j < i; j++)
                 {
                     Console.Write(" ");
                 }
@@ -477,16 +493,16 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             }
 
         }
-        public static void PYRAMID() 
+        public static void PYRAMID()
         {
             int rows = 20;
-            for (int i = 1;i <= rows; i++)
+            for (int i = 1; i <= rows; i++)
             {
-                for(int j = 1;j <= rows - i; j++)
+                for (int j = 1; j <= rows - i; j++)
                 {
                     Console.Write(" ");
                 }
-                for(int k = 1; k <= 2 * i - 1; k++)
+                for (int k = 1; k <= 2 * i - 1; k++)
                 {
                     Console.Write("X");
                 }
@@ -501,11 +517,11 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
         }
         public static void PDF6Aufgabe2()
         {
-            for( int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 10; i++)
             {
-                if(i < 4)
+                if (i < 4)
                 {
-                    Console.WriteLine($"base = {i},    squared = {i * i},      cubed  = {i * i * i}");                    
+                    Console.WriteLine($"base = {i},    squared = {i * i},      cubed  = {i * i * i}");
                 }
                 else if (i >= 4 && i < 10)
                 {
@@ -533,7 +549,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 Console.Write($"Type in the base, press enter for next input - Position {i + 1}: ");
                 potencyBase[i] = Convert.ToInt32(Console.ReadLine());
             }
-            Console.WriteLine();            
+            Console.WriteLine();
 
             for (int i = 0; i < arraySize; i++)
             {
@@ -546,7 +562,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             for (int i = 0; i < arraySize; i++)
             {
                 double result = Math.Pow(potencyBase[i], potencyExponent[i]);
-                
+
                 Console.WriteLine($"Base: {potencyBase[i]}, exponent: {potencyExponent[i]}, result: {result}");
             }
             Console.WriteLine();
@@ -561,7 +577,7 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                 {
                     explicitCalc += baseNumber + " * ";
                 }
-                
+
                 explicitCalc = explicitCalc.TrimEnd(charstToTrim);
                 Console.WriteLine($"Calculation: {potencyBase[j]} ^ {potencyExponent[j]} = {explicitCalc} = {Math.Pow(potencyBase[j], potencyExponent[j])}");
             }
@@ -588,28 +604,28 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             }
             Console.WriteLine("This is the list of items we have:\n");
             Dictionary<string, int> items = new Dictionary<string, int>();
-            
-            string[] vegetables = new string[] { "Artichokes", "Arugula", "Asparagus", "Beets", "Bell peppers", "Black beans", "Bok choy", 
-                "Broccoli", "Brussels sprouts", "Cabbage", "Carrots", "Cauliflower", "Celery", "Collard greens", "Corn", "Cucumbers", "Endive", 
+
+            string[] vegetables = new string[] { "Artichokes", "Arugula", "Asparagus", "Beets", "Bell peppers", "Black beans", "Bok choy",
+                "Broccoli", "Brussels sprouts", "Cabbage", "Carrots", "Cauliflower", "Celery", "Collard greens", "Corn", "Cucumbers", "Endive",
                 "Escarole", "Fennel", "French beans", "Garlic", "Ginger", "Green beans", "Green onions", "Green peas"};
             int[] serialnumbers = new int[25];
             for (int i = 0; i < serialnumbers.Length; i++)
             {
-                serialnumbers[i] = i+ 1 ;
+                serialnumbers[i] = i + 1;
             }
             Random rand = new Random();
-            for (int i = vegetables.Length -1; i > 0; i--)
+            for (int i = vegetables.Length - 1; i > 0; i--)
             {
                 int j = rand.Next(i + 1);
                 string temp = vegetables[i];
                 vegetables[i] = vegetables[j];
-                vegetables[j]= temp;
-            } 
-            for(int i = 0;i<serialnumbers.Length;i++)
+                vegetables[j] = temp;
+            }
+            for (int i = 0; i < serialnumbers.Length; i++)
             {
                 items.Add(vegetables[i], serialnumbers[i]);
             }
-            foreach(KeyValuePair<string, int> pair in items)
+            foreach (KeyValuePair<string, int> pair in items)
             {
                 if (pair.Value < 10)
                 {
@@ -620,11 +636,84 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
                     Console.WriteLine($"{pair.Value}:  {pair.Key}");
                 }
             }
-            
+
 
         }
 
         // PDF 7.1 Intro Methods
-        
+
+        public static void grading3()
+        {
+            Console.WriteLine("Type in your score!");
+            int score = Convert.ToInt32(Console.ReadLine());
+
+            int maxScore = 60;
+            int lowestScore = 20;
+            double grade = 1.0D;
+
+            if (score <= lowestScore)
+            {
+                grade = 5;
+                Console.WriteLine("You failed class, your grade is " + grade);
+            }
+            else if (score > 60)
+            {
+                Console.WriteLine("Invalid score");
+            }
+            else
+            {
+                for (int i = score; i < maxScore; i++)
+                {
+                    grade = grade + 0.1D;
+
+                    //Console.WriteLine("die score die sich verÃ¤ndert: " + score);
+                    //Console.WriteLine((decimal)grade);
+                }
+                Console.WriteLine("Your grade is " + (decimal)grade);
+            }
+
+        }
+
+        public static void whileCounter()
+        {
+            int counter = 0;
+            while(counter < 100)
+            {
+                counter++;            
+                Console.WriteLine(counter);
+
+            }
+            Console.ReadLine();
+        }
+
+        public static void gradingWithWhile()
+        {
+            bool validInput = false;
+            string affirmation = string.Empty;
+            while (affirmation != "yes")
+            {
+                Console.WriteLine("Enter the score you reached (max is 60): ");
+                int score = Convert.ToInt32(Console.ReadLine());
+
+                if (score > 60 || score < 0)
+                {
+                    Console.WriteLine("Invalid score. Please enter a score between 0 and 60.");
+                }
+                else if (score <= 20)
+                {
+                    Console.WriteLine("Your grade is 5.");
+                    validInput = true;
+                    Console.WriteLine("Repeat the program?");
+                    affirmation = Console.ReadLine();
+                }
+                else
+                {
+                    double grade = 1 + (60 - score) * 0.1;
+                    Console.WriteLine($"Your grade is {grade}.");
+                    validInput = true;
+                }
+            }
+            Console.ReadLine() ;    
+        }
     }
 }

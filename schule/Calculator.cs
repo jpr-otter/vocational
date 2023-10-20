@@ -7,7 +7,7 @@ using System.Transactions;
 
 namespace schule
 {
-    internal class Calculator
+    internal class Calculator 
 
     {
         public Calculator() { }
