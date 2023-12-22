@@ -93,5 +93,37 @@ namespace schule
             Console.WriteLine("moneySpent: " +  maxSpent);
             return maxSpent;
         }
+        public static void KaprekarNumbers(int p, int q)
+        {
+            bool isKaprekarNumber = false;
+            for (long i = p; i <= q; i++)
+            {
+                long squaredNumber = i * i;
+                string squaredString = squaredNumber.ToString();
+
+                string rightSide = squaredString.Substring(squaredString.Length - i.ToString().Length);
+                string leftSide = squaredString.Substring(0, squaredString.Length - rightSide.Length);
+                if (leftSide.Length == 0)
+                {
+                    leftSide = "0";
+                }
+
+                int rightNumber = Convert.ToInt32(rightSide);
+                int fused = int.Parse(leftSide) + rightNumber;
+
+                //Console.WriteLine($"{i:D2} --> L: {leftSide}, R: {rightSide}  --> Fused: {fused}");
+
+                if (fused == i)
+                {
+                    Console.Write($"{i} ");
+
+                    isKaprekarNumber = true;
+                }
+            }
+            if (!isKaprekarNumber)
+            {
+                Console.WriteLine("INVALID RANGE");
+            }
+        }
     }
 }

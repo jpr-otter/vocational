@@ -31,10 +31,10 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //PDF6ForLoopG();
             //TEST2();
             //PDF6Aufgabe2();
-            PDF6Aufgabe3();
+            //PDF6Aufgabe3();
             //EinkaufsListe();
             //grading2();
-            Fac(10);
+            //Fac(10);
             //grading3();
             //whileCounter();
             //gradingWithWhile();
@@ -53,6 +53,8 @@ namespace schule // Note: actual namespace depends on the project name. BLABLA Ã
             //Console.ReadKey();
             HackerRank.CORRECTmoneySpent(keyboards, drives, b);
             */
+            HackerRank.KaprekarNumbers(1, 300);
+            Console.ReadKey();
         }
 
         public static int Fac(int x)
